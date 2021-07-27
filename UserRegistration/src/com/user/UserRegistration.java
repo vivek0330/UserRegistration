@@ -16,6 +16,8 @@ public class UserRegistration {
 		System.out.println("Welcome to the user registration problem !!");
 		UserValidation userValidation = new UserValidation();
 		userValidation.isFirstnameValid();
+		userValidation.isLastNameValid();
+		
 	}
 
 }

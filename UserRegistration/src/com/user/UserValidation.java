@@ -23,4 +23,26 @@ public class UserValidation {
 			isFirstnameValid();
 		}
 	}
+
+	// create method isLastnameValid
+	public void isLastNameValid() {
+		final String LAST_NAME_PATTERN = "[A-Z]{1}[a-z]{2,10}";
+
+		try {
+			@SuppressWarnings("resource")
+			Scanner input = new Scanner(System.in);
+			System.out.println("Enter Lastname:");
+			String pattern = input.nextLine();
+
+			if (Pattern.matches(LAST_NAME_PATTERN, pattern))
+				System.out.println("Lastname is VALID.");
+			else
+				throw new userException("Invalid Input , Lastname starts with Capital and minimum 3 characters.");
+			System.out.println("Lastname :-" + pattern);
+		} catch (userException e) {
+			System.out.println(e.errorMessage);
+			isLastNameValid();
+		}
+	}
+
 }
