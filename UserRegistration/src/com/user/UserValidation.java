@@ -1,6 +1,7 @@
 package com.user;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserValidation {
@@ -67,6 +68,7 @@ public class UserValidation {
 		}
 	}
 
+	// create method for validation mobile
 	public void isMobileFormatValid() {
 		final String MOBILE_PATTERN = "^[0-9]{2}[\\s][0-9]{10}$";
 
@@ -87,4 +89,25 @@ public class UserValidation {
 			isMobileFormatValid();
 		}
 	}
+
+	// create method for validation password
+	public void isPasswordValid() {
+		final String PASSWORD_PATTERN = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
+
+		try {
+			Scanner input = new Scanner(System.in);
+			System.out.println("Enter Password:");
+			String pattern = input.nextLine();
+
+			if (Pattern.matches(PASSWORD_PATTERN, pattern))
+				System.out.println("Password is VALID.");
+			else
+				throw new userException("Please Try Again.");
+			System.out.println("Password :-" + pattern);
+		} catch (userException e) {
+			System.out.println(e.errorMessage);
+			isPasswordValid();
+		}
+	}
+
 }
