@@ -17,7 +17,7 @@ public class UserRegistration {
 		UserValidation userValidation = new UserValidation();
 		userValidation.isFirstnameValid();
 		userValidation.isLastNameValid();
-		
+		userValidation.isEmailValid();
 	}
 
 }

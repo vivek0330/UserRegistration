@@ -23,26 +23,47 @@ public class UserValidation {
 			isFirstnameValid();
 		}
 	}
-
+	
 	// create method isLastnameValid
 	public void isLastNameValid() {
-		final String LAST_NAME_PATTERN = "[A-Z]{1}[a-z]{2,10}";
+        final String LAST_NAME_PATTERN = "[A-Z]{1}[a-z]{2,10}";
 
-		try {
-			@SuppressWarnings("resource")
+        try {
+            @SuppressWarnings("resource")
 			Scanner input = new Scanner(System.in);
-			System.out.println("Enter Lastname:");
-			String pattern = input.nextLine();
+            System.out.println("Enter Lastname:");
+            String pattern = input.nextLine();
 
-			if (Pattern.matches(LAST_NAME_PATTERN, pattern))
-				System.out.println("Lastname is VALID.");
-			else
-				throw new userException("Invalid Input , Lastname starts with Capital and minimum 3 characters.");
-			System.out.println("Lastname :-" + pattern);
-		} catch (userException e) {
-			System.out.println(e.errorMessage);
-			isLastNameValid();
-		}
-	}
+            if(Pattern.matches(LAST_NAME_PATTERN, pattern))
+                System.out.println("Lastname is VALID.");
+            else
+                throw new userException("Invalid Input , Lastname starts with Capital and minimum 3 characters.");
+            System.out.println("Lastname :-" + pattern);
+        }
+        catch (userException e) {
+            System.out.println(e.errorMessage);
+            isLastNameValid();
+        }
+    }
+	
+	// create method for validation email
+	public void isEmailValid() {
+        final String EMAIL_PATTERN = "^[A-Za-z0-9+_.]+@[A-Za-z0-9+_.]+$";
 
+        try {
+            Scanner input = new Scanner(System.in);
+            System.out.println("Enter Email-ID:");
+            String pattern = input.nextLine();
+
+            if(Pattern.matches(EMAIL_PATTERN, pattern))
+                System.out.println("Email is VALID.");
+            else
+                throw new userException("Invalid input, email contains 1 UpperCase, 1 LowerCase, 1 Numeric and 1 special Character.");
+            System.out.println("Email-ID :-" + pattern);
+        }
+        catch (userException e) {
+            System.out.println(e.errorMessage);
+            isEmailValid();
+        }
+    }
 }
