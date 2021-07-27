@@ -18,6 +18,7 @@ public class UserRegistration {
 		userValidation.isFirstnameValid();
 		userValidation.isLastNameValid();
 		userValidation.isEmailValid();
+		userValidation.isMobileFormatValid();
 	}
 
 }
