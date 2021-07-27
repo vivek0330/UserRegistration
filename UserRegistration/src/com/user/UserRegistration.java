@@ -14,6 +14,8 @@ public class UserRegistration {
 	public static void main(String[] args) {
 		// Prints Welcome to the user registration problem !! on standard output.
 		System.out.println("Welcome to the user registration problem !!");
+		UserValidation userValidation = new UserValidation();
+		userValidation.isFirstnameValid();
 	}
 
 }
