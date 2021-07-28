@@ -18,7 +18,7 @@ public class UserValidation {
 				System.out.println("Firstname is VALID.");
 			else
 				throw new userException("Invalid Input , first name starts with Capital and minimum 3 characters.");
-			System.out.println("Firstname :-" + pattern);
+			System.out.println("Firstname :- " + pattern);
 		} catch (userException e) {
 			System.out.println(e.errorMessage);
 			isFirstnameValid();
@@ -39,7 +39,7 @@ public class UserValidation {
 				System.out.println("Lastname is VALID.");
 			else
 				throw new userException("Invalid Input , Lastname starts with Capital and minimum 3 characters.");
-			System.out.println("Lastname :-" + pattern);
+			System.out.println("Lastname :- " + pattern);
 		} catch (userException e) {
 			System.out.println(e.errorMessage);
 			isLastNameValid();
@@ -48,7 +48,7 @@ public class UserValidation {
 
 	// create method for validation email
 	public void isEmailValid() {
-		final String EMAIL_PATTERN = "^[A-Za-z0-9+_.]+@[A-Za-z0-9+_.]+$";
+		final String EMAIL_PATTERN = "^[A-Za-z0-9+-_.]+@[A-Za-z0-9+_.]+$";
 
 		try {
 			@SuppressWarnings("resource")
@@ -108,6 +108,17 @@ public class UserValidation {
 			System.out.println(e.errorMessage);
 			isPasswordValid();
 		}
+	}
+
+	/*
+	 * UC_9 Create parameterized method validation for email check
+	 *  create method for validation email
+	 */
+	public Boolean EmailValid(String Email) {
+		final String EMAIL_PATTERN = "^[A-Za-z0-9+-_.]+@[A-Za-z0-9+_.]+$";
+		boolean result = Email.matches(EMAIL_PATTERN);
+		System.out.println(result);
+		return result;
 	}
 
 }

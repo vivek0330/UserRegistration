@@ -20,6 +20,14 @@ public class UserRegistration {
 		userValidation.isEmailValid();
 		userValidation.isMobileFormatValid();
 		userValidation.isPasswordValid();
+		userValidation.EmailValid("abc@yahoo.com");
+		userValidation.EmailValid("abc-100@yahoo.com");
+		userValidation.EmailValid("abc111@abc.com");
+		userValidation.EmailValid("abc-100@abc.net");
+		userValidation.EmailValid("abc.100@abc.com.au");
+		userValidation.EmailValid("abc@1.com");
+		userValidation.EmailValid("abc@gmail.com.com");
+		userValidation.EmailValid("abc+100@gmail.com");
 	}
 
 }
